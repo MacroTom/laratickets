@@ -11,6 +11,13 @@ class AgentController extends Controller
 {
     use ApiResponse;
 
+    public function index(Request $request)
+    {
+        return $this->success('Agent account has been created!', [
+            'agents' => Agent::paginate(15)
+        ]);
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
