@@ -28,6 +28,16 @@ trait ApiResponse
         return $this->respond(401, $message);
     }
 
+    public function forbidden($message = 'Forbidden')
+    {
+        return $this->respond(403, $message);
+    }
+
+    public function unprocessed(string $message = 'Unprocessed Content.', array $errors = [])
+    {
+        return $this->respond(422, $message, errors: $errors);
+    }
+
     public function success(string $message = 'success', array $data = [])
     {
         return $this->respond(200, $message, data: $data);
