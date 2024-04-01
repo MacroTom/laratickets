@@ -13,7 +13,7 @@ class AgentController extends Controller
 
     public function index(Request $request)
     {
-        return $this->success('Agent account has been created!', [
+        return $this->success('Agent retrieved!', [
             'agents' => Agent::paginate(15)
         ]);
     }
